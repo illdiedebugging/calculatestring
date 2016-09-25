@@ -30,6 +30,8 @@ Here is an is an example of how to use it :
 		}
 		
 		System.out.println(str);  //It will print -10899
+
+CHECK OUT RELEASES FOR THE .JAR LIBRARY FILE!
 		
 This Java library is licensed under GNU General Public License v3.0. Read more on LICENSE.txt.
 
