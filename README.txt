@@ -22,6 +22,10 @@ Y888   /  /____Y88b  888     Y888   / Y88   | 888      /____Y88b     888    888
 This is a Java library that can calculate complex mathematical expression that are in String format.
 Here is an is an example of how to use it : 
 	
+	import com.illdiedebugging.calculatestring.*;
+	.
+	.
+	.
 		String str = null;
 		try{
 			str = Calculator.getResult("1-((100/5+4*2)+5)*3*(100)-(10*10^2)");
