@@ -1,7 +1,7 @@
 package com.illdiedebugging.calculatestring;
 import java.util.Arrays;
 
-public class Calculator {
+public class Calculate {
 	
 	public static String getResult(String input) throws UnableToCalculateException {
 		
