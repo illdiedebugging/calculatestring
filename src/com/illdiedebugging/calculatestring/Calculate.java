@@ -5,12 +5,11 @@ public class Calculate {
 	
 	public static String getResult(String input) throws UnableToCalculateException {
 		
-		String[] sp = input.split("(?<=[+-//*/^()])|(?=[+-//*/^()])");
+		String[] sp = input.split("(?<=[+-//*/^()√])|(?=[+-//*/^()√])");
 		checkInput(sp);
 		
 		sp = concat(new String[] { "(" }, sp, new String[] { ")" });
 
-		
 		
 		int currentlevel = 0, maxlevel = 0;
 
@@ -60,6 +59,13 @@ public class Calculate {
 		double result = 0;
 		p = Arrays.copyOfRange(p, 1, p.length - 1);
 		if (p.length == 1){return p;}
+
+        for (int i=0; i<p.length; i++) {
+            if (p[i].equals("√")) {
+                result = Math.sqrt(Double.parseDouble(p[i+1]));
+                p = concat(Arrays.copyOfRange(p, 0 , i), new String[]{String.valueOf(result)}, Arrays.copyOfRange(p, i+2, p.length));
+            }
+        }
 
 		while (!finishedOperatorsCalculation(p, new String[] { "^" })) {
 			for (int i = 0; i < p.length; i++) {
@@ -190,6 +196,7 @@ public class Calculate {
 						s[i].equals("*") ||
 						s[i].equals("/") ||
 						s[i].equals("+") ||
+						s[i].equals("√") ||
 						s[i].equals("-") ){
 				cn = 0;
 			}else if (!isNumeric(s[i])) {
@@ -216,12 +223,13 @@ public class Calculate {
 	  return true;  
 	}
 	
-	public static String transformResult(String[] s){
-		StringBuilder sb = new StringBuilder();
+	public static String transformResult(String[] s) {
+		double d = Double.parseDouble(s[0]);
 		
-		for (int i=0; i<s.length; i++) {
-			sb.append(s[i]);
+		if (d == Math.floor(d) && !Double.isInfinite(d)) {
+			int i = (int) d;
+			return i+"";
 		}
-		return sb.toString();
+		return d+"";
 	}
 }
