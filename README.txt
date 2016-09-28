@@ -28,13 +28,14 @@ Here is an is an example of how to use it :
 	.
 		String str = null;
 		try{
-			str = Calculator.getResult("1-((100/5+4*2)+5)*3*(100)-(10*10^2)");
+		str = Calculate.getResult("1-((100.5443/5+4.12333*2)+5)*√3(-100)-(10*10^2)"); 
+		//Result must be -6714.767664977295
+		//str = Calculate.getResult("(3.345+4.567)(2+5)"); 
+		//Result must be 55.38400000000001
 		}catch(UnableToCalculateException e) {
 			System.out.println(e);
 		}
-		
-		System.out.println(str);  //It will print -10899
-		
+		System.out.println(str);
 This Java library is licensed under GNU General Public License v3.0. Read more on LICENSE.txt.
 
 
