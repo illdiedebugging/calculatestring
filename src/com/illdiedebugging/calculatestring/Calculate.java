@@ -7,7 +7,7 @@ public class Calculate {
 
         String[] sp = input.trim().split("(?<=[+-//*/^()√])|(?=[+-//*/^()√])");
 
-        //sp = removesEmtyStrings(sp);
+        //sp = removesEmtyStrings(sp);  This method is useful in some cases in Android.
         sp = makeDoubles(sp);
         sp = autoMultiplication(sp);
 
